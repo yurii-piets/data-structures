@@ -4,9 +4,10 @@ import java.util.Optional;
 
 public interface ICoolArray<T extends Comparable<T>> {
     void add(T element);
-    boolean contains(Object element);
+    void add(int index, T element);
+    boolean contains(T element);
     void clear();
-    int indexOf(Object o);
+    int indexOf(T element);
     boolean isEmpty();
     Optional<T> get(int i);
     int size();

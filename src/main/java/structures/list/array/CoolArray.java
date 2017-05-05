@@ -52,7 +52,27 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     @Override
-    public boolean contains(Object o) {
+    public void add(int index, T element) {
+        if(index < 0){
+            return;
+        }
+
+        if (index >= end) {
+            Object[] newArray = new Object[index + DEFAULT_CAPACITY];
+
+            for (int i = 0; i <= this.end; ++i) {
+                newArray[i] = this.elements[i];
+            }
+
+            this.elements = newArray;
+            this.end = index;
+        }
+
+        this.elements[index] = element;
+    }
+
+    @Override
+    public boolean contains(T o) {
         if(o == null){
             for(int i = 0; i <= this.end; ++i){
                 if (this.elements[i] == null){
@@ -77,7 +97,7 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     @Override
-    public int indexOf(Object o) {
+    public int indexOf(T o) {
         if(o == null){
             for(int i=0; i <= end; ++i){
                 if(elements[i] == null){
