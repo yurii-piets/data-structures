@@ -76,6 +76,11 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         this.end = -1;
     }
 
+    public CoolArray<T> clone(){
+        CoolArray<T> cloneArray = new CoolArray<>(this);
+        return cloneArray;
+    }
+
     @Override
     public boolean isEmpty() {
         return this.end < 0;
