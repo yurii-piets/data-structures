@@ -13,8 +13,13 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     public CoolArray(int size) {
-        this.size = size;
-        this.array = new Object[size];
+        if (size < 0) {
+            this.size = DEFAULT_CAPACITY;
+            this.array = new Object[DEFAULT_CAPACITY];
+        } else {
+            this.size = size;
+            this.array = new Object[size];
+        }
     }
 
     public CoolArray(T[] array) {
@@ -43,6 +48,13 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
             resizeAndCopyArray();
         }
         this.array[++end] = element;
+    }
+
+    @Override
+    public void clear() {
+        this.array = new Object[DEFAULT_CAPACITY];
+        this.size = DEFAULT_CAPACITY;
+        this.end = -1;
     }
 
     private void copyArray(Object[] array, int left, int right) {
