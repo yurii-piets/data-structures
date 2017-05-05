@@ -10,6 +10,7 @@ public interface ICoolArray<T extends Comparable<T>> {
     int indexOf(T element);
     boolean isEmpty();
     Optional<T> get(int i);
+    Optional<T> remove(int index);
     int size();
     void trimToSize(int index);
 }

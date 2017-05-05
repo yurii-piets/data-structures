@@ -135,6 +135,22 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     @Override
+    public Optional<T> remove(int index) {
+        if (index > end) {
+            return Optional.ofNullable(null);
+        }
+
+        T tmpElement = (T) elements[index];
+
+        for (int i = index; i < this.elements.length - 1; ++i) {
+            elements[i] = elements[i + 1];
+        }
+        --end;
+
+        return Optional.ofNullable(tmpElement);
+    }
+
+    @Override
     public int size() {
         return end + 1;
     }
