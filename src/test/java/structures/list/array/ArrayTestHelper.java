@@ -55,4 +55,13 @@ class ArrayTestHelper {
 
         return true;
     }
+
+    static Object[] createTestArray(){
+        Integer testVector[] = new Integer[25];
+        for (int i = 0; i < testVector.length; ++i) {
+            testVector[i] = testVector.length - i;
+        }
+
+        return testVector;
+    }
 }

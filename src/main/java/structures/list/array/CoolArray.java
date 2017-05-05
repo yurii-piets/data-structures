@@ -57,6 +57,11 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         this.end = -1;
     }
 
+    @Override
+    public boolean isEmpty() {
+        return this.end < 0;
+    }
+
     private void copyArray(Object[] array, int left, int right) {
         if(left > right){
             return;
