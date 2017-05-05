@@ -1,5 +1,7 @@
 package structures.list.array;
 
+import java.util.Optional;
+
 public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] elements;
@@ -77,6 +79,15 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     @Override
     public boolean isEmpty() {
         return this.end < 0;
+    }
+
+    @Override
+    public Optional<T> get(int i) {
+        if(i > end || i < 0){
+            return Optional.ofNullable(null);
+        }
+
+        return Optional.ofNullable((T) elements[i]);
     }
 
     @Override
