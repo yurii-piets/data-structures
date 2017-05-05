@@ -209,8 +209,15 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
 
     @Override
     public Optional<T> set(int index, T element) {
-        //TODO
-        return null;
+        if(index > end){
+            return Optional.ofNullable(null);
+        }
+
+        Optional<T> tmpElement = Optional.ofNullable((T) this.elements[index]);
+
+        this.elements[index] = element;
+
+        return tmpElement;
     }
 
     @Override
