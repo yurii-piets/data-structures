@@ -11,4 +11,5 @@ public interface ICoolArray<T extends Comparable<T>> {
     boolean isEmpty();
     Optional<T> get(int i);
     int size();
+    void trimToSize(int index);
 }

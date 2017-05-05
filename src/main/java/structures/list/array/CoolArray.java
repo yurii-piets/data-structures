@@ -139,6 +139,22 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         return end + 1;
     }
 
+    @Override
+    public void trimToSize(int index) {
+        if (index > end) {
+            return;
+        }
+
+        Object[] newArray = new Object[index];
+
+        for (int i = 0; i < index; ++i) {
+            newArray[i] = this.elements[i];
+        }
+        this.elements = newArray;
+        this.end = index - 1;
+        this.size = index;
+    }
+
     public String toString(){
         StringBuilder builder = new StringBuilder();
 
