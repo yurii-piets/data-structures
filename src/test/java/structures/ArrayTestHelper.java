@@ -5,6 +5,7 @@ import structures.list.array.CoolArray;
 import java.lang.reflect.Field;
 
 public class ArrayTestHelper {
+
     public static int getCoolArraySize(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
         Field sizeField = array.getClass().getDeclaredField("size");
         sizeField.setAccessible(true);
