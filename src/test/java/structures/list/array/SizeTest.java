@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static structures.ArrayTestHelper.createTestArray;
+import static structures.ArrayTestHelper.getCoolArrayArray;
 
 public class SizeTest {
     @Test
@@ -36,5 +37,15 @@ public class SizeTest {
         CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray());
         coolArray.clear();
         assertEquals(coolArray.size(), 0);
+    }
+
+    @Test
+    public void testSizeFor() throws NoSuchFieldException, IllegalAccessException {
+        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray());
+        Object []vector = getCoolArrayArray(coolArray);
+
+        for(int i = 0 ; i < coolArray.size(); ++i){
+            assertEquals(vector[i], coolArray.size() - i);
+        }
     }
 }

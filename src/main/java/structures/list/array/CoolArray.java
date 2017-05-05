@@ -84,6 +84,16 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         return end + 1;
     }
 
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+
+        for(int i = 0; i <= this.end; ++i){
+            builder.append(this.elements[i]).append(" ");
+        }
+
+        return builder.toString().trim();
+    }
+
     private void copyArray(Object[] array, int left, int right) {
         if(left > right){
             return;
