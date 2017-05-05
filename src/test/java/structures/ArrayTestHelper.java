@@ -1,9 +1,11 @@
-package structures.list.array;
+package structures;
+
+import structures.list.array.CoolArray;
 
 import java.lang.reflect.Field;
 
-class ArrayTestHelper {
-    static int getCoolArraySize(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
+public class ArrayTestHelper {
+    public static int getCoolArraySize(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
         Field sizeField = array.getClass().getDeclaredField("size");
         sizeField.setAccessible(true);
         int size = (int) sizeField.get(array);
@@ -11,7 +13,7 @@ class ArrayTestHelper {
         return size;
     }
 
-    static int getCoolArrayEnd(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
+    public static int getCoolArrayEnd(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
         Field endField = array.getClass().getDeclaredField("end");
         endField.setAccessible(true);
         int end = (int) endField.get(array);
@@ -19,15 +21,15 @@ class ArrayTestHelper {
         return end;
     }
 
-    static Object[] getCoolArrayArray(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
-        Field arrayField = array.getClass().getDeclaredField("array");
+    public static Object[] getCoolArrayArray(CoolArray<?> array) throws NoSuchFieldException, IllegalAccessException {
+        Field arrayField = array.getClass().getDeclaredField("elements");
         arrayField.setAccessible(true);
         Object value[] = (Object[]) arrayField.get(array);
         arrayField.setAccessible(false);
         return value;
     }
 
-    static boolean compareCoolArrayAndVector(CoolArray<?> coolArray, Object[] testVector) throws NoSuchFieldException, IllegalAccessException {
+    public static boolean compareCoolArrayAndVector(CoolArray<?> coolArray, Object[] testVector) throws NoSuchFieldException, IllegalAccessException {
         Object mainArray[] = getCoolArrayArray(coolArray);
 
         for (int i = 0, j = 0; i < testVector.length && j < mainArray.length; ++i, ++j) {
@@ -39,7 +41,7 @@ class ArrayTestHelper {
         return true;
     }
 
-    static boolean compareCoolArrays(CoolArray<?> coolArray, CoolArray<?> coolArray2) throws NoSuchFieldException, IllegalAccessException {
+    public static boolean compareCoolArrays(CoolArray<?> coolArray, CoolArray<?> coolArray2) throws NoSuchFieldException, IllegalAccessException {
         Object[] vector = getCoolArrayArray(coolArray);
         Object[] vector2 = getCoolArrayArray(coolArray2);
 
@@ -56,8 +58,12 @@ class ArrayTestHelper {
         return true;
     }
 
-    static Object[] createTestArray(){
-        Integer testVector[] = new Integer[25];
+    public static Object[] createTestArray(){
+        return createTestArray(25);
+    }
+
+    public static Object[] createTestArray(int size){
+        Integer testVector[] = new Integer[size];
         for (int i = 0; i < testVector.length; ++i) {
             testVector[i] = testVector.length - i;
         }

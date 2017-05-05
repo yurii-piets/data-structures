@@ -3,7 +3,7 @@ package structures.list.array;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.list.array.ArrayTestHelper.*;
+import static structures.ArrayTestHelper.*;
 
 public class AddElementMethodTest {
 

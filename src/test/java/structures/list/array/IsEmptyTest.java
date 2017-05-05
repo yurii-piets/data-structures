@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static structures.list.array.ArrayTestHelper.createTestArray;
+import static structures.ArrayTestHelper.createTestArray;
 
 public class IsEmptyTest {
     @Test

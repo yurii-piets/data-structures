@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static structures.list.array.ArrayTestHelper.getCoolArrayArray;
-import static structures.list.array.ArrayTestHelper.getCoolArrayEnd;
-import static structures.list.array.ArrayTestHelper.getCoolArraySize;
+import static structures.ArrayTestHelper.getCoolArrayArray;
+import static structures.ArrayTestHelper.getCoolArrayEnd;
+import static structures.ArrayTestHelper.getCoolArraySize;
 
 public class ClearTest {
     @Test
