@@ -29,8 +29,9 @@ class ArrayTestHelper {
 
     static boolean compareCoolArrayAndVector(CoolArray<?> coolArray, Object[] testVector) throws NoSuchFieldException, IllegalAccessException {
         Object mainArray[] = getCoolArrayArray(coolArray);
+
         for (int i = 0, j = 0; i < testVector.length && j < mainArray.length; ++i, ++j) {
-            if (testVector[i] != mainArray[j]) {
+            if (!(testVector[i] == mainArray[j] || testVector[i].equals(mainArray[j]))) {
                 return false;
             }
         }
@@ -47,7 +48,7 @@ class ArrayTestHelper {
         }
 
         for (int i = 0; i < vector.length; ++i) {
-            if (vector[i] != vector2[i]) {
+            if (vector[i] != (vector2[i])) {
                 return false;
             }
         }

@@ -37,6 +37,14 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         copyArray(coolArray.array, 0, coolArray.end + 1);
     }
 
+    @Override
+    public void add(T element){
+        if(end >= array.length - 1){
+            resizeAndCopyArray();
+        }
+        this.array[++end] = element;
+    }
+
     private void copyArray(Object[] array, int left, int right) {
         if(left > right){
             return;
@@ -62,5 +70,16 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         for(int i=left; i<right; ++i){
             this.array[++end] = array[i];
         }
+    }
+
+    private void resizeAndCopyArray(){
+        this.size *=  2;
+        Object[] newArray = new Object[this.size];
+
+        for(int i=0; i<=this.end; ++i){
+            newArray[i] = this.array[i];
+        }
+
+        this.array = newArray;
     }
 }
