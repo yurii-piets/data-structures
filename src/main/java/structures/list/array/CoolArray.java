@@ -76,6 +76,25 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         this.end = -1;
     }
 
+    @Override
+    public int indexOf(Object o) {
+        if(o == null){
+            for(int i=0; i <= end; ++i){
+                if(elements[i] == null){
+                    return i;
+                }
+            }
+        }else{
+            for(int i=0; i <= end; ++i){
+                if(o.equals(elements[i])){
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
     public CoolArray<T> clone(){
         CoolArray<T> cloneArray = new CoolArray<>(this);
         return cloneArray;
