@@ -172,15 +172,36 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         for (int i = index; i < this.elements.length - 1; ++i) {
             elements[i] = elements[i + 1];
         }
-        --end;
+        end = end - 1;
 
         return Optional.ofNullable(tmpElement);
     }
 
     @Override
-    public Optional<T> remove(T element) {
-        //TODO
-        return null;
+    public void remove(T element) {
+        int indexOfOcuurance = -1;
+        if (element == null) {
+            for (int i = 0; i <= end; ++i) {
+                if (this.elements[i] == null) {
+                    indexOfOcuurance = i;
+                    break;
+                }
+            }
+        } else {
+            for (int i = 0; i <= end; ++i) {
+                if (this.elements[i].equals(element)) {
+                    indexOfOcuurance = i;
+                    break;
+                }
+            }
+        }
+
+        if (indexOfOcuurance != -1) {
+            for (int i = indexOfOcuurance; i <= end; ++i) {
+                this.elements[i] = this.elements[i + 1];
+            }
+            end = end - 1;
+        }
     }
 
     @Override

@@ -17,7 +17,7 @@ public interface ICoolArray<T extends Comparable<T>> {
     CoolArray<T> getAll(int left, int right);
 
     Optional<T> remove(int index);
-    Optional<T> remove(T element);
+    void remove(T element);
     Optional<T> replace(int index, T newElement);
     Optional<T> replace(T oldElement, T newElement);
     CoolArray<T> replaceAll(T oldElement, T newElement);

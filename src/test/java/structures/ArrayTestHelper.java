@@ -46,7 +46,7 @@ public class ArrayTestHelper {
         Object[] vector = getCoolArrayArray(coolArray);
         Object[] vector2 = getCoolArrayArray(coolArray2);
 
-        if (vector.length != vector2.length) {
+        if (coolArray.size() != coolArray2.size()) {
             return false;
         }
 
