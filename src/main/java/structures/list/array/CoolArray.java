@@ -206,26 +206,49 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
 
     @Override
     public Optional<T> replace(int index, T newElement) {
-        if (index >= end) {
-            return Optional.ofNullable(null);
+        T returnValue = null;
+
+        if (index < end) {
+            returnValue = (T) this.elements[index];
+            this.elements[index] = newElement;
         }
-
-        Optional<T> tmpValue = Optional.ofNullable((T) this.elements[index]);
-        this.elements[index] = newElement;
-
-        return tmpValue;
+        return Optional.ofNullable(returnValue);
     }
 
     @Override
-    public Optional<T> replace(T oldElement, T newElement) {
-        //TODO
-        return null;
+    public void replace(T oldElement, T newElement) {
+        if (oldElement == null) {
+            for (int i = 0; i <= end; ++i) {
+                if (this.elements[i] == null) {
+                    this.elements[i] = newElement;
+                    break;
+                }
+            }
+        } else {
+            for (int i = 0; i <= end; ++i) {
+                if (oldElement.equals(this.elements[i])) {
+                    this.elements[i] = newElement;
+                    break;
+                }
+            }
+        }
     }
 
     @Override
-    public CoolArray<T> replaceAll(T oldElement, T newElement) {
-        //TODO
-        return null;
+    public void replaceAll(T oldElement, T newElement) {
+        if (oldElement == null) {
+            for (int i = 0; i <= end; ++i) {
+                if (this.elements[i] == null) {
+                    this.elements[i] = newElement;
+                }
+            }
+        } else {
+            for (int i = 0; i <= end; ++i) {
+                if (oldElement.equals(this.elements[i])) {
+                    this.elements[i] = newElement;
+                }
+            }
+        }
     }
 
     @Override
