@@ -1,22 +1,22 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static structures.ArrayTestHelper.createTestArray;
+import static collections.list.array.ArrayTestHelper.createTestArray;
 
 public class ContainMethodTest {
 
     @Test
     public void testContainsNull() {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         assertFalse(coolArray.contains(null));
     }
 
     @Test
     public void testContainsNullFalse() {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.add(null);
         assertTrue(coolArray.contains(null));
     }
@@ -24,7 +24,7 @@ public class ContainMethodTest {
     @Test
     public void testContainsElement() {
         int element = 7;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.add(element);
         assertTrue(coolArray.contains(element));
     }
@@ -32,13 +32,13 @@ public class ContainMethodTest {
     @Test
     public void testContainsElementFalse() {
         int element = 7;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         assertFalse(coolArray.contains(element));
     }
 
     @Test
     public void testContainsElements() {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for (int i = 0; i < 25; ++i) {
             coolArray.add(i);
         }
@@ -52,7 +52,7 @@ public class ContainMethodTest {
 
     @Test
     public void testContainsElementsFalse() {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for (int i = 25; i < 50; ++i) {
             coolArray.add(i);
         }
@@ -67,7 +67,7 @@ public class ContainMethodTest {
     @Test
     public void testContainsElementClear() {
         int element = 7;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.add(element);
         coolArray.clear();
         assertFalse(coolArray.contains(element));
@@ -75,13 +75,13 @@ public class ContainMethodTest {
 
     @Test
     public void testContainsElementArray() {
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
         assertTrue(coolArray.contains(7));
     }
 
     @Test
     public void testContainsElementClearArrayFalse() {
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
         coolArray.clear();
         assertFalse(coolArray.contains(7));
     }

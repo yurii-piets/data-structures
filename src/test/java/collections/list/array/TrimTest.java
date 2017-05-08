@@ -1,16 +1,16 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.ArrayTestHelper.*;
+import static collections.list.array.ArrayTestHelper.*;
 
 public class TrimTest {
 
     @Test
     public void testTrimEmptyToSmaller() throws NoSuchFieldException, IllegalAccessException {
         final int TRIMMED_SIZE = 4;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.trimToSize(TRIMMED_SIZE);
 
         assertEquals(10, getCoolArraySize(coolArray));
@@ -21,7 +21,7 @@ public class TrimTest {
     @Test
     public void testTrimEmptyToLarger() throws NoSuchFieldException, IllegalAccessException {
         final int TRIMMED_SIZE = 14;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.trimToSize(TRIMMED_SIZE);
 
         assertEquals(10, getCoolArraySize(coolArray));
@@ -32,7 +32,7 @@ public class TrimTest {
     @Test
     public void testTrimNonEmptyToSmaller() throws NoSuchFieldException, IllegalAccessException {
         final int TRIMMED_SIZE = 14;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for(int i = 0; i < 25; ++i){
             coolArray.add(i);
         }
@@ -46,11 +46,11 @@ public class TrimTest {
     @Test
     public void testTrimNonEmptyToLarger() throws NoSuchFieldException, IllegalAccessException {
         final int TRIMMED_SIZE = 34;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for(int i = 0; i < 25; ++i){
             coolArray.add(i);
         }
-        CoolArray<Integer> cloneArray = coolArray.clone();
+        ArrayList<Integer> cloneArray = coolArray.clone();
         coolArray.trimToSize(TRIMMED_SIZE);
 
         assertEquals(40, getCoolArraySize(coolArray));

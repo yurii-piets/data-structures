@@ -1,9 +1,9 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.ArrayTestHelper.createTestArray;
+import static collections.list.array.ArrayTestHelper.createTestArray;
 
 public class AddElementOnPositionTest {
 
@@ -12,7 +12,7 @@ public class AddElementOnPositionTest {
         Integer element = 777;
         int index = 5;
 
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.add(index,element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -24,7 +24,7 @@ public class AddElementOnPositionTest {
         Integer element = 777;
         int index = 15;
 
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.add(index,element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -36,7 +36,7 @@ public class AddElementOnPositionTest {
         Integer element = 777;
         int index = 5;
 
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer []) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer []) createTestArray());
         coolArray.add(index,element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -48,7 +48,7 @@ public class AddElementOnPositionTest {
         Integer element = 777;
         int index = 15;
 
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer []) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer []) createTestArray());
         coolArray.add(index,element);
 
         assertTrue(coolArray.get(index).isPresent());

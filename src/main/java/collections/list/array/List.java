@@ -1,11 +1,11 @@
-package structures.list.array;
+package collections.list.array;
 
 import java.util.Optional;
 
-public interface ICoolArray<T extends Comparable<T>> {
+public interface List<T extends Comparable<T>> {
     void add(T element);
     void add(int index, T element);
-    void addAll(ICoolArray<T> array);
+    void addAll(List<T> array);
 
     boolean contains(T element);
     void clear();
@@ -14,7 +14,7 @@ public interface ICoolArray<T extends Comparable<T>> {
     boolean isEmpty();
 
     Optional<T> get(int i);
-    CoolArray<T> getAll(int left, int right);
+    ArrayList<T> getAll(int left, int right);
 
     Optional<T> remove(int index);
     void remove(T element);

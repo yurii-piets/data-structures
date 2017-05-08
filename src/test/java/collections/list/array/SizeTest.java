@@ -1,29 +1,29 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static structures.ArrayTestHelper.createTestArray;
-import static structures.ArrayTestHelper.getCoolArrayArray;
+import static collections.list.array.ArrayTestHelper.createTestArray;
+import static collections.list.array.ArrayTestHelper.getCoolArrayArray;
 
 public class SizeTest {
     @Test
     public void testEmptySize(){
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         assertEquals(coolArray.size(), 0);
     }
 
     @Test
     public void testSizeConstructor(){
         int SIZE = 25;
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[])createTestArray(SIZE));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[])createTestArray(SIZE));
         assertEquals(coolArray.size(), SIZE);
     }
 
     @Test
     public void testSizeAddedElement(){
         int SIZE = 25;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
 
         for(int i =0; i < SIZE; ++i){
             coolArray.add(i);
@@ -34,14 +34,14 @@ public class SizeTest {
 
     @Test
     public void testSizeClearedElement(){
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
         coolArray.clear();
         assertEquals(coolArray.size(), 0);
     }
 
     @Test
     public void testSizeFor() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
         Object []vector = getCoolArrayArray(coolArray);
 
         for(int i = 0 ; i < coolArray.size(); ++i){

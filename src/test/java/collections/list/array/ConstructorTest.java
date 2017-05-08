@@ -1,15 +1,15 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.ArrayTestHelper.*;
+import static collections.list.array.ArrayTestHelper.*;
 
 public class ConstructorTest {
 
     @Test
     public void testZeroArgumentConstructor() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> array = new CoolArray<>();
+        ArrayList<Integer> array = new ArrayList<>();
 
         assertEquals(getCoolArraySize(array), 10);
         assertEquals(getCoolArrayEnd(array), -1);
@@ -19,7 +19,7 @@ public class ConstructorTest {
     @Test
     public void testSizeArgumentConstructor() throws NoSuchFieldException, IllegalAccessException {
         int customSize = 1000;
-        CoolArray<Integer> array = new CoolArray<>(customSize);
+        ArrayList<Integer> array = new ArrayList<>(customSize);
 
         assertEquals(getCoolArraySize(array), customSize);
         assertEquals(getCoolArrayEnd(array), -1);
@@ -33,7 +33,7 @@ public class ConstructorTest {
             testVector[i] = testVector.length - i;
         }
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testVector);
+        ArrayList<Integer> coolArray = new ArrayList<>(testVector);
 
         assertTrue(compareCoolArrayAndVector(coolArray, testVector));
         assertEquals(getCoolArraySize(coolArray), testVector.length * 2);
@@ -49,7 +49,7 @@ public class ConstructorTest {
 
         int left = 10, right = 20;
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testArray, left, right);
+        ArrayList<Integer> coolArray = new ArrayList<>(testArray, left, right);
 
         boolean arraysEqual = true;
         Object mainArray[] = getCoolArrayArray(coolArray);
@@ -74,7 +74,7 @@ public class ConstructorTest {
 
         int left = 20, right = 10;
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testVector, left, right);
+        ArrayList<Integer> coolArray = new ArrayList<>(testVector, left, right);
 
         assertFalse(compareCoolArrayAndVector(coolArray, testVector));
         assertEquals(getCoolArraySize(coolArray), testVector.length * 2);
@@ -90,7 +90,7 @@ public class ConstructorTest {
 
         int left = -10, right = 30;
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testVector, left, right);
+        ArrayList<Integer> coolArray = new ArrayList<>(testVector, left, right);
 
         assertTrue(compareCoolArrayAndVector(coolArray, testVector));
         assertEquals(getCoolArraySize(coolArray), testVector.length * 2);
@@ -104,8 +104,8 @@ public class ConstructorTest {
             array[i] = array.length - i;
         }
 
-        CoolArray<Integer> coolArray = new CoolArray<>(array);
-        CoolArray<Integer> copyArray = new CoolArray<>(coolArray);
+        ArrayList<Integer> coolArray = new ArrayList<>(array);
+        ArrayList<Integer> copyArray = new ArrayList<>(coolArray);
 
         assertEquals(getCoolArraySize(coolArray), getCoolArraySize(copyArray));
         assertEquals(getCoolArrayEnd(coolArray), getCoolArrayEnd(copyArray));

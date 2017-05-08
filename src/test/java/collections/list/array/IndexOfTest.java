@@ -1,28 +1,28 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static structures.ArrayTestHelper.createTestArray;
+import static collections.list.array.ArrayTestHelper.createTestArray;
 
 public class IndexOfTest {
 
     @Test
     public void testIndexOfNullOfEmptyArray(){
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         assertEquals(-1, coolArray.indexOf(null));
     }
 
     @Test
     public void testIndexOfNullOfNonEmptyArray(){
         int SIZE = 20;
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer []) createTestArray(SIZE));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer []) createTestArray(SIZE));
         assertEquals(-1, coolArray.indexOf(null));
     }
 
     @Test
     public void testIndexOfAddedElement(){
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for(int i = 0; i < 30; ++i){
             coolArray.add(i);
         }
@@ -32,7 +32,7 @@ public class IndexOfTest {
 
     @Test
     public void testIndexOfAddedElementFalse(){
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         for(int i = 0; i < 30; ++i){
             coolArray.add(i);
         }
