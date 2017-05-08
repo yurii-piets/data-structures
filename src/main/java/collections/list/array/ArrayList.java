@@ -1,19 +1,19 @@
-package structures.list.array;
+package collections.list.array;
 
 import java.util.Optional;
 
-public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
+public class ArrayList<T extends Comparable<T>> implements List<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] elements;
     private int size;
     private int end = -1;
 
-    public CoolArray() {
+    public ArrayList() {
         this.size = DEFAULT_CAPACITY;
         this.elements = new Object[DEFAULT_CAPACITY];
     }
 
-    public CoolArray(int size) {
+    public ArrayList(int size) {
         if (size < 0) {
             this.size = DEFAULT_CAPACITY;
             this.elements = new Object[DEFAULT_CAPACITY];
@@ -23,21 +23,21 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         }
     }
 
-    public CoolArray(T[] array) {
+    public ArrayList(T[] array) {
         this.size = 2 * array.length;
         this.elements = new Object[size];
         copyArray(array, 0, array.length);
         this.end = array.length-1;
     }
 
-    public CoolArray(T[] array, int left, int right) {
+    public ArrayList(T[] array, int left, int right) {
         this.size = 2*array.length;
         this.elements = new Object[size];
         copyArray(array, left, right);
         this.end = right;
     }
 
-    public CoolArray(CoolArray<T> coolArray){
+    public ArrayList(ArrayList<T> coolArray){
         this.elements = new Object[coolArray.size];
         this.size = coolArray.size;
         copyArray(coolArray.elements, 0, coolArray.end + 1);
@@ -72,7 +72,7 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     @Override
-    public void addAll(ICoolArray<T> array) {
+    public void addAll(List<T> array) {
         if(array == null ){
             return;
         }
@@ -131,8 +131,8 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
         return -1;
     }
 
-    public CoolArray<T> clone(){
-        CoolArray<T> cloneArray = new CoolArray<>(this);
+    public ArrayList<T> clone(){
+        ArrayList<T> cloneArray = new ArrayList<>(this);
         return cloneArray;
     }
 
@@ -151,8 +151,8 @@ public class CoolArray<T extends Comparable<T>> implements ICoolArray<T> {
     }
 
     @Override
-    public CoolArray<T> getAll(int left, int right) {
-        CoolArray<T> coolArray = new CoolArray<>();
+    public ArrayList<T> getAll(int left, int right) {
+        ArrayList<T> coolArray = new ArrayList<>();
 
         for(int i = left; i <= this.end && i < right; ++i){
             coolArray.add((T) this.elements[i]);

@@ -1,17 +1,17 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static structures.ArrayTestHelper.getCoolArrayArray;
-import static structures.ArrayTestHelper.getCoolArrayEnd;
-import static structures.ArrayTestHelper.getCoolArraySize;
+import static collections.list.array.ArrayTestHelper.getCoolArrayArray;
+import static collections.list.array.ArrayTestHelper.getCoolArrayEnd;
+import static collections.list.array.ArrayTestHelper.getCoolArraySize;
 
 public class ClearTest {
     @Test
     public void testClearEmpty() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.clear();
 
         assertEquals(getCoolArraySize(coolArray), 10);
@@ -21,7 +21,7 @@ public class ClearTest {
 
     @Test
     public void testClearCustomCapacity() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> coolArray = new CoolArray<>(55);
+        ArrayList<Integer> coolArray = new ArrayList<>(55);
         coolArray.clear();
 
         assertEquals(getCoolArraySize(coolArray), 10);
@@ -36,7 +36,7 @@ public class ClearTest {
             testVector[i] = testVector.length - i;
         }
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testVector);
+        ArrayList<Integer> coolArray = new ArrayList<>(testVector);
         coolArray.clear();
 
         assertEquals(getCoolArraySize(coolArray), 10);
@@ -51,8 +51,8 @@ public class ClearTest {
             testVector[i] = testVector.length - i;
         }
 
-        CoolArray<Integer> coolArray = new CoolArray<>(testVector);
-        CoolArray<Integer> copyArray = new CoolArray<>(coolArray);
+        ArrayList<Integer> coolArray = new ArrayList<>(testVector);
+        ArrayList<Integer> copyArray = new ArrayList<>(coolArray);
 
         copyArray.clear();
 

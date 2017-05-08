@@ -1,15 +1,15 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.ArrayTestHelper.*;
+import static collections.list.array.ArrayTestHelper.*;
 
 public class AddElementMethodTest {
 
     @Test
     public void testAddDefaultConstructorInRanger() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
 
         int size = 10;
         Object[] testVector = new Integer[size];
@@ -25,7 +25,7 @@ public class AddElementMethodTest {
 
     @Test
     public void testAddDefaultConstructorOutOfRange() throws NoSuchFieldException, IllegalAccessException {
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
 
         int size = 25;
         int supposedSize = 40;
@@ -44,7 +44,7 @@ public class AddElementMethodTest {
     @Test
     public void testAddSizeCustomSizeConstructorInRange() throws NoSuchFieldException, IllegalAccessException {
         int size = 49;
-        CoolArray<Integer> coolArray = new CoolArray<>(size);
+        ArrayList<Integer> coolArray = new ArrayList<>(size);
 
         Object[] testVector = new Integer[size];
         for (int i = 0; i < size; ++i) {
@@ -60,7 +60,7 @@ public class AddElementMethodTest {
     @Test
     public void testAddSizeCustomConstructorOutOfRange() throws NoSuchFieldException, IllegalAccessException {
         int size = 37;
-        CoolArray<Integer> coolArray = new CoolArray<>(size);
+        ArrayList<Integer> coolArray = new ArrayList<>(size);
 
         Object[] testVector = new Integer[size * 2];
         for (int i = 0; i < size * 2; ++i) {
@@ -81,8 +81,8 @@ public class AddElementMethodTest {
             vector[i] = i;
         }
 
-        CoolArray<Integer> coolArray = new CoolArray<>(vector);
-        CoolArray<Integer> copyArray = new CoolArray<>(coolArray);
+        ArrayList<Integer> coolArray = new ArrayList<>(vector);
+        ArrayList<Integer> copyArray = new ArrayList<>(coolArray);
 
         for(int i=0; i < size; ++i){
             copyArray.add(size + i);

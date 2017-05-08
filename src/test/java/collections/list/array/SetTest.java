@@ -1,9 +1,9 @@
-package structures.list.array;
+package collections.list.array;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static structures.ArrayTestHelper.createTestArray;
+import static collections.list.array.ArrayTestHelper.createTestArray;
 
 public class SetTest {
 
@@ -11,7 +11,7 @@ public class SetTest {
     public void testSetEmpty(){
         Integer element = 10;
         int index = 0;
-        CoolArray<Integer> coolArray = new CoolArray<>();
+        ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.set(index, element);
 
         assertFalse(coolArray.get(index).isPresent());
@@ -21,7 +21,7 @@ public class SetTest {
     public void testSetNotEmpty(){
         Integer element = -12;
         int index = 15;
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
         coolArray.set(index, element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -32,7 +32,7 @@ public class SetTest {
     public void testSetInRange(){
         Integer element = -12;
         int index = 22;
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray(32));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(32));
         coolArray.set(index, element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -43,7 +43,7 @@ public class SetTest {
     public void testSetOutOfRange(){
         Integer element = -12;
         int index = 22;
-        CoolArray<Integer> coolArray = new CoolArray<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
         coolArray.set(index, element);
 
         assertFalse(coolArray.get(index).isPresent());
