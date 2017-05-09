@@ -2,4 +2,6 @@
 
 **List of implemented data structures:**
 
-    1. ArrayList as CoolArray
+    1. ArrayList
+    2. LinkedQueue
+    3. LinkedStack
