@@ -5,3 +5,4 @@
     1. ArrayList
     2. LinkedQueue
     3. LinkedStack
+    4. LinkedList
