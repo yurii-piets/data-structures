@@ -1,5 +1,6 @@
 package collections.list.array;
 
+import collections.list.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
