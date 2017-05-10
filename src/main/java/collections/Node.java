@@ -1,6 +1,5 @@
 package collections;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
