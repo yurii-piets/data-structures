@@ -18,6 +18,7 @@ public interface List<T extends Comparable<T>> {
 
     Optional<T> remove(int index);
     void remove(T element);
+    void removeAll(T element);
     Optional<T> replace(int index, T newElement);
     void replace(T oldElement, T newElement);
     void replaceAll(T oldElement, T newElement);

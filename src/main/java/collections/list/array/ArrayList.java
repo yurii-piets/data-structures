@@ -205,6 +205,24 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     }
 
     @Override
+    public void removeAll(T element) {
+        if(element == null){
+            for(int i = 0; i <= end; ++i){
+                if(!get(i).isPresent()) {
+                    remove(i--);
+                }
+            }
+        }else{
+            for(int i = 0; i <= end; ++i){
+                Optional<T> tmp = get(i);
+                if(tmp.isPresent() && element.equals(tmp.get())) {
+                    remove(i--);
+                }
+            }
+        }
+    }
+
+    @Override
     public Optional<T> replace(int index, T newElement) {
         T returnValue = null;
 
