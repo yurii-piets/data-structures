@@ -1,5 +1,7 @@
 package collections.queue;
 
+import collections.Node;
+
 import java.util.Optional;
 
 public class LinkedQueue<T> implements Queue<T> {

@@ -1,5 +1,6 @@
 package collections.queue;
 
+import collections.Node;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
