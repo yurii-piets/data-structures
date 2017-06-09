@@ -3,5 +3,7 @@
 **List of implemented data structures:**
 
     1. ArrayList
-    2. LinkedQueue
-    3. LinkedList
+    2. LinkedList
+    3. LinkedQueue
+    4. LinkedStack
+    5. HashMap
