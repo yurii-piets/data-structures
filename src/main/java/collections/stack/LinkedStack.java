@@ -1,12 +1,12 @@
 package collections.stack;
 
-import collections.Node;
+import collections.ListNode;
 
 import java.util.Optional;
 
 public class LinkedStack<T> implements Stack<T> {
 
-    private Node<T> head;
+    private ListNode<T> head;
 
     public LinkedStack() {
         head = null;
@@ -19,7 +19,7 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public void push(T element) {
-        Node<T> node = new Node<>(element);
+        ListNode<T> node = new ListNode<>(element);
         if(head == null){
             head = node;
         }else{

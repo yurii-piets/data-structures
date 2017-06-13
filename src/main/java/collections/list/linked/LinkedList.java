@@ -1,14 +1,14 @@
 package collections.list.linked;
 
-import collections.Node;
+import collections.ListNode;
 import collections.list.List;
 
 import java.util.Optional;
 
 public class LinkedList<T> implements List<T> {
 
-    private Node<T> head;
-    private Node<T> tail;
+    private ListNode<T> head;
+    private ListNode<T> tail;
     private int size = 0;
 
     public LinkedList() {
@@ -22,7 +22,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void add(T element) {
-        Node<T> node = new Node<T>(element);
+        ListNode<T> node = new ListNode<T>(element);
         if (head == null) {
             head = node;
             tail = node;
@@ -40,10 +40,10 @@ public class LinkedList<T> implements List<T> {
             throw new ArrayIndexOutOfBoundsException();
         }
 
-        Node<T> insertNode = new Node<>(element);
+        ListNode<T> insertNode = new ListNode<>(element);
 
         int i = 0;
-        Node<T> current = head;
+        ListNode<T> current = head;
         while (current != null) {
             if (i == index) {
 
@@ -91,7 +91,7 @@ public class LinkedList<T> implements List<T> {
         int i = 0;
         int returnValue = -1;
 
-        Node<T> current = head;
+        ListNode<T> current = head;
         if (element == null) {
             while (current != null) {
                 if (current.getElement() == null) {
@@ -124,7 +124,7 @@ public class LinkedList<T> implements List<T> {
     public Optional<T> get(int index) {
         T returnValue = null;
         if (index >= 0) {
-            Optional<Node<T>> node = getNodeByIndex(index);
+            Optional<ListNode<T>> node = getNodeByIndex(index);
             if (node.isPresent()) {
                 returnValue = node.get().getElement();
             }
@@ -136,9 +136,9 @@ public class LinkedList<T> implements List<T> {
     @Override
     public List<T> getAll(int left, int right) {
         LinkedList<T> list = new LinkedList<>();
-        Optional<Node<T>> current = getNodeByIndex(left);
+        Optional<ListNode<T>> current = getNodeByIndex(left);
         if (current.isPresent()) {
-            Node<T> newCurrent = current.get();
+            ListNode<T> newCurrent = current.get();
             for (int i = left; i < right && current != null; ++i) {
                 list.add(newCurrent.getElement());
                 newCurrent = newCurrent.getNext();
@@ -152,9 +152,9 @@ public class LinkedList<T> implements List<T> {
         T returnValue = null;
 
         if (index >= 0 && index < size) {
-            Optional<Node<T>> currentNode = getNodeByIndex(index);
+            Optional<ListNode<T>> currentNode = getNodeByIndex(index);
             if (currentNode.isPresent()) {
-                Node<T> current = currentNode.get();
+                ListNode<T> current = currentNode.get();
                 returnValue = currentNode.get().getElement();
 
                 if (current == head) {
@@ -193,17 +193,17 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void remove(T element) {
-        Optional<Node<T>> currentNode = getNodeByValue(element);
+        Optional<ListNode<T>> currentNode = getNodeByValue(element);
         currentNode.ifPresent(this::removeNode);
     }
 
     @Override
     public void removeAll(T element) {
-        Node<T> current = head;
+        ListNode<T> current = head;
 
         if (element == null) {
             while (current != null) {
-                Node<T> currentNext = current.getNext();
+                ListNode<T> currentNext = current.getNext();
 
                 if (current.getElement() == null) {
                     removeNode(current);
@@ -212,7 +212,7 @@ public class LinkedList<T> implements List<T> {
             }
         } else {
             while (current != null) {
-                Node<T> currentNext = current.getNext();
+                ListNode<T> currentNext = current.getNext();
                 if (element.equals(current.getElement())) {
                     removeNode(current);
                 }
@@ -223,7 +223,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public Optional<T> replace(int index, T newElement) {
-        Optional<Node<T>> node = getNodeByIndex(index);
+        Optional<ListNode<T>> node = getNodeByIndex(index);
         T returnValue = null;
         if (node.isPresent()) {
             returnValue = node.get().getElement();
@@ -234,7 +234,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void replace(T oldElement, T newElement) {
-        Optional<Node<T>> node = getNodeByValue(oldElement);
+        Optional<ListNode<T>> node = getNodeByValue(oldElement);
         if (node.isPresent()) {
             node.get().getElement();
             node.get().setElement(newElement);
@@ -243,7 +243,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void replaceAll(T oldElement, T newElement) {
-        Node<T> current = head;
+        ListNode<T> current = head;
         if (oldElement == null) {
             while (current != null) {
                 if (current.getElement() == null) {
@@ -263,10 +263,10 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public Optional<T> set(int index, T element) {
-        Optional<Node<T>> current = getNodeByIndex(index);
+        Optional<ListNode<T>> current = getNodeByIndex(index);
         T returnValue = null;
         if (current.isPresent()) {
-            Node<T> newCurrent = current.get();
+            ListNode<T> newCurrent = current.get();
             returnValue = newCurrent.getElement();
             newCurrent.setElement(element);
         }
@@ -281,7 +281,7 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void trimToSize(int index) {
         if (index >= 0 && index < size) {
-            Node<T> current = head;
+            ListNode<T> current = head;
             for (int i = 0; i < index; ++i) {
                 current = current.getNext();
             }
@@ -291,11 +291,11 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
-    private Optional<Node<T>> getNodeByIndex(int index) {
-        Node<T> returnValue = null;
+    private Optional<ListNode<T>> getNodeByIndex(int index) {
+        ListNode<T> returnValue = null;
         if (index < size) {
             int i = 0;
-            Node<T> current = head;
+            ListNode<T> current = head;
 
             while (current != null) {
                 if (i == index) {
@@ -310,9 +310,9 @@ public class LinkedList<T> implements List<T> {
         return Optional.ofNullable(returnValue);
     }
 
-    private Optional<Node<T>> getNodeByValue(T element) {
-        Node<T> returnValue = null;
-        Node<T> current = head;
+    private Optional<ListNode<T>> getNodeByValue(T element) {
+        ListNode<T> returnValue = null;
+        ListNode<T> current = head;
 
         if (element == null) {
             while (current != null) {
@@ -334,7 +334,7 @@ public class LinkedList<T> implements List<T> {
         return Optional.ofNullable(returnValue);
     }
 
-    private void removeNode(Node<T> current) {
+    private void removeNode(ListNode<T> current) {
         if (current == head) {
             head = current.getNext();
 

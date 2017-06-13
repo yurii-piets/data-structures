@@ -1,13 +1,10 @@
 package collections.stack;
 
-import collections.Node;
+import collections.ListNode;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -19,7 +16,7 @@ public class StackTest {
 
         Field headField = stack.getClass().getDeclaredField("head");
         headField.setAccessible(true);
-        Node<?> head = (Node<?>) headField.get(stack);
+        ListNode<?> head = (ListNode<?>) headField.get(stack);
 
         assertNull(head);
     }
