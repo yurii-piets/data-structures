@@ -5,11 +5,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class BSTreeTest {
-
-    private Tree<Integer> tree;
+    private BSTree<Integer> tree;
 
     @Before
     public void init(){
@@ -20,7 +21,6 @@ public class BSTreeTest {
     public void reset(){
         tree = null;
     }
-
 
     @Test
     public void add() throws Exception {
@@ -38,6 +38,7 @@ public class BSTreeTest {
             assertTrue(tree.contains(i));
         }
     }
+
 
     @Test
     public void clear() throws Exception {
@@ -407,6 +408,32 @@ public class BSTreeTest {
 
         tree.clear();
         assertEquals(0, tree.size());
+    }
+
+    @Test
+    public void min() throws Exception {
+        Random random = new Random();
+        Integer min = Integer.MAX_VALUE;
+        for(int i = 0; i <100; ++i){
+            int val = random.nextInt();
+            tree.add(val);
+            min = min > val ? val : min;
+        }
+
+        assertEquals(min, tree.min());
+    }
+
+    @Test
+    public void max() throws Exception {
+        Random random = new Random();
+        Integer max = Integer.MIN_VALUE;
+        for(int i = 0; i <100; ++i){
+            int val = random.nextInt();
+            tree.add(val);
+            max = max < val ? val : max;
+        }
+
+        assertEquals(max, tree.max());
     }
 
 }
