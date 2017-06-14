@@ -1,6 +1,6 @@
 package collections.queue.linked;
 
-import collections.queue.LinkedNode;
+import collections.LinkedNode;
 import collections.queue.Queue;
 
 import java.util.Optional;

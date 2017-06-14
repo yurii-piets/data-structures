@@ -1,6 +1,6 @@
 package collections.list.linked;
 
-import collections.list.ListNode;
+import collections.LinkedNode;
 import collections.list.List;
 import org.junit.Test;
 
@@ -44,8 +44,8 @@ public class LinkedListTest {
     @Test
     public void constructorZeroArgument() throws Exception {
         List<?> list = new LinkedList<>();
-        ListNode<?> head = (ListNode<?>) getValueByName(list, "head");
-        ListNode<?> tail = (ListNode<?>) getValueByName(list, "tail");
+        LinkedNode<?> head = (LinkedNode<?>) getValueByName(list, "head");
+        LinkedNode<?> tail = (LinkedNode<?>) getValueByName(list, "tail");
         int size = (int) getValueByName(list, "size");
 
         assertNull(head);
@@ -82,8 +82,8 @@ public class LinkedListTest {
     public void add() throws Exception {
         List<Double> list = new LinkedList<>();
 
-        ListNode<?> headNode = (ListNode) getValueByName(list, "head");
-        ListNode<?> tailNode = (ListNode) getValueByName(list, "tail");
+        LinkedNode<?> headNode = (LinkedNode) getValueByName(list, "head");
+        LinkedNode<?> tailNode = (LinkedNode) getValueByName(list, "tail");
 
         assertNull(headNode);
         assertNull(tailNode);
@@ -92,21 +92,21 @@ public class LinkedListTest {
         list.add(1.1);
         assertEquals(1, list.size());
 
-        headNode = (ListNode) getValueByName(list, "head");
-        tailNode = (ListNode) getValueByName(list, "tail");
+        headNode = (LinkedNode) getValueByName(list, "head");
+        tailNode = (LinkedNode) getValueByName(list, "tail");
         assertEquals(headNode, tailNode);
         assertEquals(headNode.getElement(), tailNode.getElement());
 
         list.add(77.7);
-        headNode = (ListNode) getValueByName(list, "head");
-        tailNode = (ListNode) getValueByName(list, "tail");
+        headNode = (LinkedNode) getValueByName(list, "head");
+        tailNode = (LinkedNode) getValueByName(list, "tail");
         assertEquals(2, list.size());
         assertNotEquals(headNode, tailNode);
         assertNotEquals(headNode.getElement(), tailNode.getElement());
 
         list.add(null);
-        headNode = (ListNode) getValueByName(list, "head");
-        tailNode = (ListNode) getValueByName(list, "tail");
+        headNode = (LinkedNode) getValueByName(list, "head");
+        tailNode = (LinkedNode) getValueByName(list, "tail");
         assertEquals(3, list.size());
         assertNotEquals(headNode, tailNode);
         assertNotEquals(headNode.getElement(), tailNode.getElement());
@@ -128,8 +128,8 @@ public class LinkedListTest {
         assertEquals(tailNode.getElement(), tailNode.getPrevious().getPrevious().getNext().getNext().getElement());
 
         list.clear();
-        headNode = (ListNode) getValueByName(list, "head");
-        tailNode = (ListNode) getValueByName(list, "tail");
+        headNode = (LinkedNode) getValueByName(list, "head");
+        tailNode = (LinkedNode) getValueByName(list, "tail");
         assertEquals(0, list.size());
         assertEquals(headNode, tailNode);
         assertNull(headNode);

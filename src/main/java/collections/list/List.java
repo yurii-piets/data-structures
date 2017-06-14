@@ -4,7 +4,7 @@ import collections.list.array.ArrayList;
 
 import java.util.Optional;
 
-public interface List<T extends Comparable<T>> {
+public interface List<T> {
     void add(T element);
     void add(int index, T element);
     void addAll(List<T> array);
@@ -16,7 +16,7 @@ public interface List<T extends Comparable<T>> {
     boolean isEmpty();
 
     Optional<T> get(int i);
-    ArrayList<T> getAll(int left, int right);
+    List<T> getAll(int left, int right);
 
     Optional<T> remove(int index);
     void remove(T element);

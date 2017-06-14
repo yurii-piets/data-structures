@@ -1,6 +1,7 @@
 package collections.stack;
 
 import collections.LinkedNode;
+import collections.stack.linked.LinkedStack;
 import org.junit.Test;
 
 import java.lang.reflect.Field;

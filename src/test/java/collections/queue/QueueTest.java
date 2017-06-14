@@ -1,5 +1,6 @@
 package collections.queue;
 
+import collections.LinkedNode;
 import collections.queue.linked.LinkedQueue;
 import org.junit.Test;
 
