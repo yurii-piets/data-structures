@@ -1,4 +1,4 @@
-# Data structures #
+#Data structures#
 
 **List of implemented data structures:**
 
