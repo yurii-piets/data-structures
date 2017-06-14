@@ -6,12 +6,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Node<T> {
+public class LinkedNode<T> {
     private T element;
-    private Node<T> next;
-    private Node<T> previous;
+    private LinkedNode<T> next;
+    private LinkedNode<T> previous;
 
-    public Node(T element) {
+    public LinkedNode(T element) {
         this.element = element;
     }
 }

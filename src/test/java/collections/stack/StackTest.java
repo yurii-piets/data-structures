@@ -1,6 +1,6 @@
 package collections.stack;
 
-import collections.Node;
+import collections.LinkedNode;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -16,7 +16,7 @@ public class StackTest {
 
         Field headField = stack.getClass().getDeclaredField("head");
         headField.setAccessible(true);
-        Node<?> head = (Node<?>) headField.get(stack);
+        LinkedNode<?> head = (LinkedNode<?>) headField.get(stack);
 
         assertNull(head);
     }
