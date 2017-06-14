@@ -1,8 +1,9 @@
 package collections.stack;
 
-import collections.ListNode;
+import collections.list.ListNode;
 
 import java.util.Optional;
+import java.util.Stack;
 
 public class LinkedStack<T> implements Stack<T> {
 

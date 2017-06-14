@@ -1,6 +1,6 @@
 package collections.stack;
 
-import collections.ListNode;
+import collections.list.ListNode;
 import org.junit.Test;
 
 import java.lang.reflect.Field;

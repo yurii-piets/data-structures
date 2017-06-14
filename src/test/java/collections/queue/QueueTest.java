@@ -1,6 +1,6 @@
 package collections.queue;
 
-import collections.ListNode;
+import collections.list.ListNode;
 import org.junit.Test;
 
 import java.lang.reflect.Field;

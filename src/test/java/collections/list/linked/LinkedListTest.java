@@ -1,6 +1,6 @@
 package collections.list.linked;
 
-import collections.ListNode;
+import collections.list.ListNode;
 import collections.list.List;
 import org.junit.Test;
 
