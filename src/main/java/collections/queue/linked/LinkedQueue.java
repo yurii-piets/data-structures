@@ -18,7 +18,7 @@ public class LinkedQueue<T> implements Queue<T> {
         head = last = null;
 
         LinkedNode<T> current = queue.head;
-        if(current != null) {
+        if (current != null) {
             while (current != null) {
                 this.push(current.getElement());
                 current = current.getNext();
@@ -33,7 +33,7 @@ public class LinkedQueue<T> implements Queue<T> {
         if (head != null) {
             current = head.getElement();
             head = head.getNext();
-            if(head != null) {
+            if (head != null) {
                 head.setPrevious(null);
             }
         }
@@ -58,7 +58,7 @@ public class LinkedQueue<T> implements Queue<T> {
     @Override
     public Optional peek() {
         T node = null;
-        if (head != null){
+        if (head != null) {
             node = head.getElement();
         }
         return Optional.ofNullable(node);

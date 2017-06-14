@@ -29,25 +29,25 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
         this.size = 2 * array.length;
         this.elements = new Object[size];
         copyArray(array, 0, array.length);
-        this.end = array.length-1;
+        this.end = array.length - 1;
     }
 
     public ArrayList(T[] array, int left, int right) {
-        this.size = 2*array.length;
+        this.size = 2 * array.length;
         this.elements = new Object[size];
         copyArray(array, left, right);
         this.end = right;
     }
 
-    public ArrayList(ArrayList<T> coolArray){
+    public ArrayList(ArrayList<T> coolArray) {
         this.elements = new Object[coolArray.size];
         this.size = coolArray.size;
         copyArray(coolArray.elements, 0, coolArray.end + 1);
     }
 
     @Override
-    public void add(T element){
-        if(end >= elements.length - 1){
+    public void add(T element) {
+        if (end >= elements.length - 1) {
             resizeAndCopyArray();
         }
         this.elements[++end] = element;
@@ -55,7 +55,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void add(int index, T element) {
-        if(index < 0){
+        if (index < 0) {
             return;
         }
 
@@ -75,7 +75,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void addAll(List<T> array) {
-        if(array == null ){
+        if (array == null) {
             return;
         }
 
@@ -91,15 +91,15 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public boolean contains(T o) {
-        if(o == null){
-            for(int i = 0; i <= this.end; ++i){
-                if (this.elements[i] == null){
+        if (o == null) {
+            for (int i = 0; i <= this.end; ++i) {
+                if (this.elements[i] == null) {
                     return true;
                 }
             }
-        }else{
-            for(int i = 0; i <= this.end; ++i){
-                if (o.equals(this.elements[i])){
+        } else {
+            for (int i = 0; i <= this.end; ++i) {
+                if (o.equals(this.elements[i])) {
                     return true;
                 }
             }
@@ -116,15 +116,15 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public int indexOf(T o) {
-        if(o == null){
-            for(int i=0; i <= end; ++i){
-                if(elements[i] == null){
+        if (o == null) {
+            for (int i = 0; i <= end; ++i) {
+                if (elements[i] == null) {
                     return i;
                 }
             }
-        }else{
-            for(int i=0; i <= end; ++i){
-                if(o.equals(elements[i])){
+        } else {
+            for (int i = 0; i <= end; ++i) {
+                if (o.equals(elements[i])) {
                     return i;
                 }
             }
@@ -133,7 +133,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
         return -1;
     }
 
-    public ArrayList<T> clone(){
+    public ArrayList<T> clone() {
         ArrayList<T> cloneArray = new ArrayList<>(this);
         return cloneArray;
     }
@@ -145,7 +145,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public Optional<T> get(int i) {
-        if(i > end || i < 0){
+        if (i > end || i < 0) {
             return Optional.ofNullable(null);
         }
 
@@ -156,7 +156,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     public ArrayList<T> getAll(int left, int right) {
         ArrayList<T> coolArray = new ArrayList<>();
 
-        for(int i = left; i <= this.end && i < right; ++i){
+        for (int i = left; i <= this.end && i < right; ++i) {
             coolArray.add((T) this.elements[i]);
         }
 
@@ -208,16 +208,16 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void removeAll(T element) {
-        if(element == null){
-            for(int i = 0; i <= end; ++i){
-                if(!get(i).isPresent()) {
+        if (element == null) {
+            for (int i = 0; i <= end; ++i) {
+                if (!get(i).isPresent()) {
                     remove(i--);
                 }
             }
-        }else{
-            for(int i = 0; i <= end; ++i){
+        } else {
+            for (int i = 0; i <= end; ++i) {
                 Optional<T> tmp = get(i);
-                if(tmp.isPresent() && element.equals(tmp.get())) {
+                if (tmp.isPresent() && element.equals(tmp.get())) {
                     remove(i--);
                 }
             }
@@ -273,7 +273,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public Optional<T> set(int index, T element) {
-        if(index > end){
+        if (index > end) {
             return Optional.ofNullable(null);
         }
 
@@ -305,10 +305,10 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
         this.size = index;
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        for(int i = 0; i <= this.end; ++i){
+        for (int i = 0; i <= this.end; ++i) {
             builder.append(this.elements[i]).append(" ");
         }
 
@@ -316,19 +316,19 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     }
 
     private void copyArray(Object[] array, int left, int right) {
-        if(left > right){
+        if (left > right) {
             return;
         }
 
-        if(left < 0){
+        if (left < 0) {
             left = 0;
         }
 
-        if(right > array.length){
+        if (right > array.length) {
             right = array.length;
         }
 
-        if(this.elements.length < array.length){
+        if (this.elements.length < array.length) {
             Object[] newArray = new Object[array.length * 2];
             for (int i = 0; i < this.elements.length; ++i) {
                 newArray[i] = this.elements[i];
@@ -337,16 +337,16 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
             this.end = newArray.length;
         }
 
-        for(int i=left; i<right; ++i){
+        for (int i = left; i < right; ++i) {
             this.elements[++end] = array[i];
         }
     }
 
-    private void resizeAndCopyArray(){
-        this.size *=  2;
+    private void resizeAndCopyArray() {
+        this.size *= 2;
         Object[] newArray = new Object[this.size];
 
-        for(int i=0; i<=this.end; ++i){
+        for (int i = 0; i <= this.end; ++i) {
             newArray[i] = this.elements[i];
         }
 

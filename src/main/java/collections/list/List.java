@@ -1,7 +1,5 @@
 package collections.list;
 
-import collections.list.array.ArrayList;
-
 import java.util.Optional;
 
 public interface List<T> {

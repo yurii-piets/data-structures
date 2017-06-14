@@ -21,9 +21,9 @@ public class LinkedStack<T> implements Stack<T> {
     @Override
     public void push(T element) {
         LinkedNode<T> node = new LinkedNode<>(element);
-        if(head == null){
+        if (head == null) {
             head = node;
-        }else{
+        } else {
             node.setNext(head);
             head.setPrevious(node);
             head = node;
@@ -34,10 +34,10 @@ public class LinkedStack<T> implements Stack<T> {
     public Optional<T> pop() {
         T current = null;
 
-        if(head != null){
+        if (head != null) {
             current = head.getElement();
             head = head.getNext();
-            if(head != null){
+            if (head != null) {
                 head.setPrevious(null);
             }
         }
@@ -49,7 +49,7 @@ public class LinkedStack<T> implements Stack<T> {
     public Optional<T> peek() {
         T current = null;
 
-        if(head != null){
+        if (head != null) {
             current = head.getElement();
         }
 
