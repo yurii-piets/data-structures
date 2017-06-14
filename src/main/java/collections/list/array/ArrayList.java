@@ -1,5 +1,7 @@
 package collections.list.array;
 
+import collections.list.List;
+
 import java.util.Optional;
 
 public class ArrayList<T extends Comparable<T>> implements List<T> {

@@ -1,4 +1,6 @@
-package collections.list.array;
+package collections.list;
+
+import collections.list.array.ArrayList;
 
 import java.util.Optional;
 

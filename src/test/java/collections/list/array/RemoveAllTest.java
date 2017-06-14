@@ -1,5 +1,6 @@
 package collections.list.array;
 
+import collections.list.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +10,7 @@ public class RemoveAllTest {
 
     @Test
     public void removeAll(){
-        List<Double> list = new ArrayList<>();
+        ArrayList<Double> list = new ArrayList<>();
         list.add(1.1);
         list.add(1.2);
         list.add(1.2);
