@@ -1,11 +1,14 @@
-package collections.queue;
+package collections.queue.linked;
+
+import collections.queue.LinkedNode;
+import collections.queue.Queue;
 
 import java.util.Optional;
 
 public class LinkedQueue<T> implements Queue<T> {
 
-    private Node<T> head;
-    private Node<T> last;
+    private LinkedNode<T> head;
+    private LinkedNode<T> last;
 
     public LinkedQueue() {
         head = last = null;
@@ -14,7 +17,7 @@ public class LinkedQueue<T> implements Queue<T> {
     public LinkedQueue(LinkedQueue<T> queue) {
         head = last = null;
 
-        Node<T> current = queue.head;
+        LinkedNode<T> current = queue.head;
         if(current != null) {
             while (current != null) {
                 this.push(current.getElement());
@@ -40,7 +43,7 @@ public class LinkedQueue<T> implements Queue<T> {
 
     @Override
     public void push(T element) {
-        Node<T> current = new Node<>(element);
+        LinkedNode<T> current = new LinkedNode<>(element);
 
         if (last == null) {
             head = current;

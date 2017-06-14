@@ -1,5 +1,6 @@
 package collections.queue;
 
+import collections.queue.linked.LinkedQueue;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -14,11 +15,11 @@ public class QueueTest {
 
         Field headField = queue.getClass().getDeclaredField("head");
         headField.setAccessible(true);
-        Node<?> head = (Node<?>) headField.get(queue);
+        LinkedNode<?> head = (LinkedNode<?>) headField.get(queue);
 
         Field lastField = queue.getClass().getDeclaredField("last");
         lastField.setAccessible(true);
-        Node<?> last = (Node<?>) lastField.get(queue);
+        LinkedNode<?> last = (LinkedNode<?>) lastField.get(queue);
 
         assertNull(head);
         assertNull(last);
@@ -36,11 +37,11 @@ public class QueueTest {
 
         Field headField = queueClone.getClass().getDeclaredField("head");
         headField.setAccessible(true);
-        Node<Double> head = (Node<Double>) headField.get(queueClone);
+        LinkedNode<Double> head = (LinkedNode<Double>) headField.get(queueClone);
 
         Field lastField = queueClone.getClass().getDeclaredField("last");
         lastField.setAccessible(true);
-        Node<?> last = (Node<?>) lastField.get(queueClone);
+        LinkedNode<?> last = (LinkedNode<?>) lastField.get(queueClone);
 
         assertNotNull(head);
         assertNotNull(last);
