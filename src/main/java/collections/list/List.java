@@ -26,4 +26,5 @@ public interface List<T> {
     Optional<T> set(int index, T element);
     int size();
     void trimToSize(int index);
+    List<T> clone();
 }
