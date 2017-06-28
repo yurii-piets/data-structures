@@ -132,8 +132,8 @@ public class ArrayList<T> implements List<T>, Cloneable {
     }
 
     @Override
-    public List<T> clone() {
-        List<T> cloneArray = new ArrayList<>(this);
+    public ArrayList<T> clone() {
+        ArrayList<T> cloneArray = new ArrayList<>(this);
         return cloneArray;
     }
 
