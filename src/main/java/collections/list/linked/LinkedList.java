@@ -291,6 +291,11 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
+    @Override
+    public List<T> clone() {
+        return new LinkedList<>(this);
+    }
+
     private Optional<LinkedNode<T>> getNodeByIndex(int index) {
         LinkedNode<T> returnValue = null;
         if (index < size) {
