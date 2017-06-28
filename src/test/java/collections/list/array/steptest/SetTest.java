@@ -1,9 +1,10 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.createTestArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class SetTest {
 
@@ -21,7 +22,7 @@ public class SetTest {
     public void testSetNotEmpty(){
         Integer element = -12;
         int index = 15;
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray());
         coolArray.set(index, element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -32,7 +33,7 @@ public class SetTest {
     public void testSetInRange(){
         Integer element = -12;
         int index = 22;
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(32));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(32));
         coolArray.set(index, element);
 
         assertTrue(coolArray.get(index).isPresent());
@@ -43,7 +44,7 @@ public class SetTest {
     public void testSetOutOfRange(){
         Integer element = -12;
         int index = 22;
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(10));
         coolArray.set(index, element);
 
         assertFalse(coolArray.get(index).isPresent());

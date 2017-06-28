@@ -1,9 +1,10 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.*;
 
 public class AddElementMethodTest {
 
@@ -18,9 +19,9 @@ public class AddElementMethodTest {
             testVector[i] = i;
         }
 
-        assertEquals(getCoolArraySize(coolArray), size);
-        assertEquals(getCoolArrayEnd(coolArray), size - 1);
-        assertArrayEquals(getCoolArrayArray(coolArray), testVector);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), size);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), size - 1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), testVector);
     }
 
     @Test
@@ -36,9 +37,9 @@ public class AddElementMethodTest {
             testVector[i] = i;
         }
 
-        assertEquals(getCoolArraySize(coolArray), supposedSize);
-        assertEquals(getCoolArrayEnd(coolArray), size - 1);
-        assertTrue(compareCoolArrayAndVector(coolArray, testVector));
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), supposedSize);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), size - 1);
+        assertTrue(ArrayTestHelper.compareCoolArrayAndVector(coolArray, testVector));
     }
 
     @Test
@@ -52,9 +53,9 @@ public class AddElementMethodTest {
             testVector[i] = i;
         }
 
-        assertEquals(getCoolArraySize(coolArray), size);
-        assertEquals(getCoolArrayEnd(coolArray), size - 1);
-        assertArrayEquals(getCoolArrayArray(coolArray), testVector);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), size);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), size - 1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), testVector);
     }
 
     @Test
@@ -68,9 +69,9 @@ public class AddElementMethodTest {
             testVector[i] = i;
         }
 
-        assertEquals(getCoolArraySize(coolArray), size * 2);
-        assertEquals(getCoolArrayEnd(coolArray), size * 2 - 1);
-        assertArrayEquals(getCoolArrayArray(coolArray), testVector);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), size * 2);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), size * 2 - 1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), testVector);
     }
 
     @Test
@@ -94,7 +95,7 @@ public class AddElementMethodTest {
             testVector[i] = i;
         }
 
-        assertTrue(compareCoolArrayAndVector(copyArray, testVector));
+        assertTrue(ArrayTestHelper.compareCoolArrayAndVector(copyArray, testVector));
     }
 
 }

@@ -1,11 +1,10 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static collections.list.array.ArrayTestHelper.compareCoolArrayAndVector;
-import static collections.list.array.ArrayTestHelper.compareCoolArrays;
 
 public class RemoveElementTest {
 
@@ -16,7 +15,7 @@ public class RemoveElementTest {
         coolArray.add(3);coolArray.add(4);coolArray.add(5);
         coolArray.remove(new Integer(2));
 
-        assertTrue(compareCoolArrayAndVector(coolArray, new Integer[]{0,1,3,4,5}));
+        assertTrue(ArrayTestHelper.compareCoolArrayAndVector(coolArray, new Integer[]{0,1,3,4,5}));
     }
 
     @Test
@@ -25,7 +24,7 @@ public class RemoveElementTest {
         ArrayList<Integer> coolArray = new ArrayList<>(defaultVector);
         coolArray.remove(new Integer(-7));
 
-        assertTrue(compareCoolArrayAndVector(coolArray, defaultVector));
+        assertTrue(ArrayTestHelper.compareCoolArrayAndVector(coolArray, defaultVector));
     }
 
     @Test
@@ -34,13 +33,13 @@ public class RemoveElementTest {
         ArrayList<Integer> defaultCoolArray = new ArrayList<>(defaultVector);
         ArrayList<Integer> coolArray = new ArrayList<>(defaultVector);
         coolArray.remove(null);
-        assertTrue(compareCoolArrays(coolArray, defaultCoolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(coolArray, defaultCoolArray));
 
         coolArray.add(null);
-        assertFalse(compareCoolArrays(coolArray, defaultCoolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(coolArray, defaultCoolArray));
 
         coolArray.remove(null);
-        assertTrue(compareCoolArrays(coolArray, defaultCoolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(coolArray, defaultCoolArray));
     }
 
 }

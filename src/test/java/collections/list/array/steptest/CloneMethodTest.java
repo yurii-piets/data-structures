@@ -1,15 +1,17 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.List;
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.*;
 
 public class CloneMethodTest {
     @Test
     public void testClone(){
         ArrayList<Integer> originalArray = new ArrayList<>();
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
         assertFalse(originalArray == cloneArray);
     }
@@ -17,9 +19,9 @@ public class CloneMethodTest {
     @Test
     public void testCloneArrays() throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> originalArray = new ArrayList<>();
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
-        assertFalse(getCoolArrayArray(originalArray) == getCoolArrayArray(cloneArray));
+        assertFalse(ArrayTestHelper.getCoolArrayArray(originalArray) == ArrayTestHelper.getCoolArrayArray(cloneArray));
     }
 
     @Test
@@ -29,29 +31,29 @@ public class CloneMethodTest {
             originalArray.add(i);
         }
 
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
         originalArray.add(1);
 
-        assertFalse(compareCoolArrays(originalArray, cloneArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(originalArray, cloneArray));
 }
 
     @Test
     public void testClonedEmptySize() throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> originalArray = new ArrayList<>();
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
         assertEquals(originalArray.size(), cloneArray.size());
-        assertEquals(getCoolArraySize(originalArray), getCoolArraySize(cloneArray));
-        assertEquals(getCoolArrayEnd(originalArray), getCoolArrayEnd(cloneArray));
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(originalArray), ArrayTestHelper.getCoolArraySize(cloneArray));
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(originalArray), ArrayTestHelper.getCoolArrayEnd(cloneArray));
     }
 
     @Test
     public void testClonedEmptyArray() throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> originalArray = new ArrayList<>();
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
-        assertArrayEquals(getCoolArrayArray(originalArray), getCoolArrayArray(cloneArray));
-        assertTrue(compareCoolArrays(originalArray, cloneArray));
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(originalArray), ArrayTestHelper.getCoolArrayArray(cloneArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(originalArray, cloneArray));
     }
 
     @Test
@@ -61,11 +63,11 @@ public class CloneMethodTest {
             originalArray.add(i);
         }
 
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
         assertEquals(originalArray.size(), cloneArray.size());
-        assertEquals(getCoolArraySize(originalArray), getCoolArraySize(cloneArray));
-        assertEquals(getCoolArrayEnd(originalArray), getCoolArrayEnd(cloneArray));
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(originalArray), ArrayTestHelper.getCoolArraySize(cloneArray));
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(originalArray), ArrayTestHelper.getCoolArrayEnd(cloneArray));
     }
 
     @Test
@@ -75,9 +77,9 @@ public class CloneMethodTest {
             originalArray.add(i);
         }
 
-        ArrayList<Integer> cloneArray = originalArray.clone();
+        List<Integer> cloneArray = originalArray.clone();
 
-        assertArrayEquals(getCoolArrayArray(originalArray), getCoolArrayArray(cloneArray));
-        assertTrue(compareCoolArrays(originalArray, cloneArray));
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(originalArray), ArrayTestHelper.getCoolArrayArray(cloneArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(originalArray, cloneArray));
     }
 }

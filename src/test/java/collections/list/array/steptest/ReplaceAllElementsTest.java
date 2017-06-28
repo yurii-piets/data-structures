@@ -1,10 +1,11 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.List;
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static collections.list.array.ArrayTestHelper.compareCoolArrays;
 
 public class ReplaceAllElementsTest {
     @Test
@@ -12,11 +13,11 @@ public class ReplaceAllElementsTest {
         Integer oldElement = 10;
         Integer newElement = -10;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{10, 1, 10, 3, 4, 10});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         coolArray.replaceAll(oldElement, newElement);
 
-        assertFalse(compareCoolArrays(defaultArray, coolArray));
-        assertTrue(compareCoolArrays(new ArrayList<>(new Integer[]{-10, 1, -10, 3, 4, -10}), coolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(defaultArray, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(new ArrayList<>(new Integer[]{-10, 1, -10, 3, 4, -10}), coolArray));
     }
 
     @Test
@@ -24,11 +25,11 @@ public class ReplaceAllElementsTest {
         Integer oldElement = 10;
         Integer newElement = null;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{10, 10, 10, 10, 4, 5});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         coolArray.replaceAll(oldElement, newElement);
 
-        assertFalse(compareCoolArrays(defaultArray, coolArray));
-        assertTrue(compareCoolArrays(new ArrayList<>(new Integer[]{null, null, null, null, 4, 5}), coolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(defaultArray, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(new ArrayList<>(new Integer[]{null, null, null, null, 4, 5}), coolArray));
     }
 
     @Test
@@ -36,10 +37,10 @@ public class ReplaceAllElementsTest {
         Integer oldElement = null;
         Integer newElement = -1;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{0, null, 2, null, 4, null});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         coolArray.replaceAll(oldElement, newElement);
 
-        assertFalse(compareCoolArrays(defaultArray, coolArray));
-        assertTrue(compareCoolArrays(new ArrayList<>(new Integer[]{0, -1, 2, -1, 4, -1}), coolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(defaultArray, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(new ArrayList<>(new Integer[]{0, -1, 2, -1, 4, -1}), coolArray));
     }
 }

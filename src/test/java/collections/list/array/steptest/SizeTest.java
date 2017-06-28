@@ -1,10 +1,10 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static collections.list.array.ArrayTestHelper.createTestArray;
-import static collections.list.array.ArrayTestHelper.getCoolArrayArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class SizeTest {
     @Test
@@ -16,7 +16,7 @@ public class SizeTest {
     @Test
     public void testSizeConstructor(){
         int SIZE = 25;
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[])createTestArray(SIZE));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(SIZE));
         assertEquals(coolArray.size(), SIZE);
     }
 
@@ -34,15 +34,15 @@ public class SizeTest {
 
     @Test
     public void testSizeClearedElement(){
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray());
         coolArray.clear();
         assertEquals(coolArray.size(), 0);
     }
 
     @Test
     public void testSizeFor() throws NoSuchFieldException, IllegalAccessException {
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
-        Object []vector = getCoolArrayArray(coolArray);
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray());
+        Object []vector = ArrayTestHelper.getCoolArrayArray(coolArray);
 
         for(int i = 0 ; i < coolArray.size(); ++i){
             assertEquals(vector[i], coolArray.size() - i);

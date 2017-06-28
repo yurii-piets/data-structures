@@ -1,11 +1,12 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.List;
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import java.util.Optional;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.compareCoolArrays;
 
 public class ReplaceIndexTest {
     @Test
@@ -13,11 +14,11 @@ public class ReplaceIndexTest {
         int index = 2;
         Integer element = -2;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{0, 1, 2, 3, 4, 5});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         coolArray.replace(index, element);
 
-        assertFalse(compareCoolArrays(defaultArray, coolArray));
-        assertTrue(compareCoolArrays(new ArrayList<>(new Integer[]{0, 1, -2, 3, 4, 5}), coolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(defaultArray, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(new ArrayList<>(new Integer[]{0, 1, -2, 3, 4, 5}), coolArray));
     }
 
     @Test
@@ -25,11 +26,11 @@ public class ReplaceIndexTest {
         int index = 2;
         Integer element = null;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{0, 1, 2, 3, 4, 5});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         coolArray.replace(index, element);
 
-        assertFalse(compareCoolArrays(defaultArray, coolArray));
-        assertTrue(compareCoolArrays(new ArrayList<>(new Integer[]{0, 1, null, 3, 4, 5}), coolArray));
+        assertFalse(ArrayTestHelper.compareCoolArrays(defaultArray, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(new ArrayList<>(new Integer[]{0, 1, null, 3, 4, 5}), coolArray));
     }
 
     @Test
@@ -37,7 +38,7 @@ public class ReplaceIndexTest {
         int index = 2;
         Integer element = -2;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{0, 1, 2, 3, 4, 5});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         Optional<Integer> value = coolArray.replace(index, element);
 
         assertTrue(value.isPresent());
@@ -49,7 +50,7 @@ public class ReplaceIndexTest {
         int index = 10;
         Integer element = -2;
         ArrayList<Integer> defaultArray = new ArrayList<>(new Integer[]{0, 1, 2, 3, 4, 5});
-        ArrayList<Integer> coolArray = defaultArray.clone();
+        List<Integer> coolArray = defaultArray.clone();
         Optional<Integer> value = coolArray.replace(index, element);
 
         assertFalse(value.isPresent());

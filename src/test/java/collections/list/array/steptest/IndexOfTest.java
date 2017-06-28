@@ -1,9 +1,10 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static collections.list.array.ArrayTestHelper.createTestArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class IndexOfTest {
 
@@ -16,7 +17,7 @@ public class IndexOfTest {
     @Test
     public void testIndexOfNullOfNonEmptyArray(){
         int SIZE = 20;
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer []) createTestArray(SIZE));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer []) ArrayTestHelper.createTestArray(SIZE));
         assertEquals(-1, coolArray.indexOf(null));
     }
 

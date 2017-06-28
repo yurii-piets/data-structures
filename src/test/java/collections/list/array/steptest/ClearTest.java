@@ -1,12 +1,11 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static collections.list.array.ArrayTestHelper.getCoolArrayArray;
-import static collections.list.array.ArrayTestHelper.getCoolArrayEnd;
-import static collections.list.array.ArrayTestHelper.getCoolArraySize;
 
 public class ClearTest {
     @Test
@@ -14,9 +13,9 @@ public class ClearTest {
         ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.clear();
 
-        assertEquals(getCoolArraySize(coolArray), 10);
-        assertEquals(getCoolArrayEnd(coolArray), -1);
-        assertArrayEquals(getCoolArrayArray(coolArray), new Object[10]);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), 10);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), -1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), new Object[10]);
     }
 
     @Test
@@ -24,9 +23,9 @@ public class ClearTest {
         ArrayList<Integer> coolArray = new ArrayList<>(55);
         coolArray.clear();
 
-        assertEquals(getCoolArraySize(coolArray), 10);
-        assertEquals(getCoolArrayEnd(coolArray), -1);
-        assertArrayEquals(getCoolArrayArray(coolArray), new Object[10]);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), 10);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), -1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), new Object[10]);
     }
 
     @Test
@@ -39,9 +38,9 @@ public class ClearTest {
         ArrayList<Integer> coolArray = new ArrayList<>(testVector);
         coolArray.clear();
 
-        assertEquals(getCoolArraySize(coolArray), 10);
-        assertEquals(getCoolArrayEnd(coolArray), -1);
-        assertArrayEquals(getCoolArrayArray(coolArray), new Object[10]);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(coolArray), 10);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(coolArray), -1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(coolArray), new Object[10]);
     }
 
     @Test
@@ -56,8 +55,8 @@ public class ClearTest {
 
         copyArray.clear();
 
-        assertEquals(getCoolArraySize(copyArray), 10);
-        assertEquals(getCoolArrayEnd(copyArray), -1);
-        assertArrayEquals(getCoolArrayArray(copyArray), new Object[10]);
+        Assert.assertEquals(ArrayTestHelper.getCoolArraySize(copyArray), 10);
+        Assert.assertEquals(ArrayTestHelper.getCoolArrayEnd(copyArray), -1);
+        Assert.assertArrayEquals(ArrayTestHelper.getCoolArrayArray(copyArray), new Object[10]);
     }
 }

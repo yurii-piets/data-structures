@@ -1,6 +1,7 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
 import collections.list.List;
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

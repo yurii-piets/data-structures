@@ -1,9 +1,11 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.List;
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.*;
 
 public class TrimTest {
 
@@ -13,9 +15,9 @@ public class TrimTest {
         ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.trimToSize(TRIMMED_SIZE);
 
-        assertEquals(10, getCoolArraySize(coolArray));
-        assertEquals(-1, getCoolArrayEnd(coolArray));
-        assertArrayEquals(new Object[10], getCoolArrayArray(coolArray));
+        Assert.assertEquals(10, ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(-1, ArrayTestHelper.getCoolArrayEnd(coolArray));
+        Assert.assertArrayEquals(new Object[10], ArrayTestHelper.getCoolArrayArray(coolArray));
     }
 
     @Test
@@ -24,9 +26,9 @@ public class TrimTest {
         ArrayList<Integer> coolArray = new ArrayList<>();
         coolArray.trimToSize(TRIMMED_SIZE);
 
-        assertEquals(10, getCoolArraySize(coolArray));
-        assertEquals(-1, getCoolArrayEnd(coolArray));
-        assertArrayEquals(new Object[10], getCoolArrayArray(coolArray));
+        Assert.assertEquals(10, ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(-1, ArrayTestHelper.getCoolArrayEnd(coolArray));
+        Assert.assertArrayEquals(new Object[10], ArrayTestHelper.getCoolArrayArray(coolArray));
     }
 
     @Test
@@ -39,8 +41,8 @@ public class TrimTest {
 
         coolArray.trimToSize(TRIMMED_SIZE);
 
-        assertEquals(TRIMMED_SIZE, getCoolArraySize(coolArray));
-        assertEquals(TRIMMED_SIZE - 1, getCoolArrayEnd(coolArray));
+        Assert.assertEquals(TRIMMED_SIZE, ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(TRIMMED_SIZE - 1, ArrayTestHelper.getCoolArrayEnd(coolArray));
     }
 
     @Test
@@ -50,11 +52,11 @@ public class TrimTest {
         for(int i = 0; i < 25; ++i){
             coolArray.add(i);
         }
-        ArrayList<Integer> cloneArray = coolArray.clone();
+        List<Integer> cloneArray = coolArray.clone();
         coolArray.trimToSize(TRIMMED_SIZE);
 
-        assertEquals(40, getCoolArraySize(coolArray));
-        assertEquals(24, getCoolArrayEnd(coolArray));
-        assertTrue(compareCoolArrays(coolArray, cloneArray));
+        Assert.assertEquals(40, ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(24, ArrayTestHelper.getCoolArrayEnd(coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(coolArray, cloneArray));
     }
 }

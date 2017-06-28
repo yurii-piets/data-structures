@@ -1,10 +1,11 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static collections.list.array.ArrayTestHelper.createTestArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class IsEmptyTest {
     @Test
@@ -15,7 +16,7 @@ public class IsEmptyTest {
 
     @Test
     public void testFalseConstructed(){
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray());
         assertFalse(coolArray.isEmpty());
     }
 
@@ -30,7 +31,7 @@ public class IsEmptyTest {
 
     @Test
     public void testIsEmptyConstructor(){
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray());
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray());
         coolArray.clear();
         assertTrue(coolArray.isEmpty());
     }

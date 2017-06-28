@@ -1,22 +1,24 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.List;
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
 
 import static org.junit.Assert.*;
-import static collections.list.array.ArrayTestHelper.*;
 
 public class RemoveIndexTest {
     @Test
     public void testRemoveFromEmpty() throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> coolArray = new ArrayList<>();
-        ArrayList<Integer> cloneArray = coolArray.clone();
+        List<Integer> cloneArray = coolArray.clone();
         assertFalse(coolArray.remove(5).isPresent());
 
-        assertEquals(10 , getCoolArraySize(coolArray));
-        assertEquals(-1 , getCoolArrayEnd(coolArray));
-        assertTrue(compareCoolArrays(coolArray, cloneArray));
+        Assert.assertEquals(10 , ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(-1 , ArrayTestHelper.getCoolArrayEnd(coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(coolArray, cloneArray));
     }
 
     @Test
@@ -31,12 +33,12 @@ public class RemoveIndexTest {
         assertTrue(value.isPresent());
         assertEquals(new Integer(1), value.get());
 
-        assertEquals(10, getCoolArraySize(coolArray));
-        assertEquals(3, getCoolArrayEnd(coolArray));
+        Assert.assertEquals(10, ArrayTestHelper.getCoolArraySize(coolArray));
+        Assert.assertEquals(3, ArrayTestHelper.getCoolArrayEnd(coolArray));
         assertEquals(4, coolArray.size());
         ArrayList<Integer> array =  new ArrayList<>();
         array.add(0);array.add(2);array.add(3);array.add(4);
-        assertTrue(compareCoolArrays(array, coolArray));
+        assertTrue(ArrayTestHelper.compareCoolArrays(array, coolArray));
     }
 
     @Test

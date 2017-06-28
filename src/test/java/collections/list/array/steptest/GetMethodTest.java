@@ -1,12 +1,13 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static collections.list.array.ArrayTestHelper.createTestArray;
-import static collections.list.array.ArrayTestHelper.getCoolArrayArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class GetMethodTest {
     @Test
@@ -34,10 +35,10 @@ public class GetMethodTest {
 
     @Test
     public void testGetArray() throws NoSuchFieldException, IllegalAccessException {
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(33));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(33));
 
         assertTrue(coolArray.get(32).isPresent());
-        assertEquals(coolArray.get(32).get(), getCoolArrayArray(coolArray)[32]);
+        Assert.assertEquals(coolArray.get(32).get(), ArrayTestHelper.getCoolArrayArray(coolArray)[32]);
         assertEquals(coolArray.get(32).get(), (Integer) 1);
     }
 
@@ -49,7 +50,7 @@ public class GetMethodTest {
         }
 
         assertTrue(coolArray.get(10).isPresent());
-        assertEquals(coolArray.get(10).get(), getCoolArrayArray(coolArray)[10]);
+        Assert.assertEquals(coolArray.get(10).get(), ArrayTestHelper.getCoolArrayArray(coolArray)[10]);
         assertEquals(coolArray.get(10).get(), (Integer) 10);
 
     }

@@ -1,10 +1,11 @@
-package collections.list.array;
+package collections.list.array.steptest;
 
+import collections.list.array.ArrayList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static collections.list.array.ArrayTestHelper.createTestArray;
+import static collections.list.array.steptest.ArrayTestHelper.createTestArray;
 
 public class ContainMethodTest {
 
@@ -75,13 +76,13 @@ public class ContainMethodTest {
 
     @Test
     public void testContainsElementArray() {
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(10));
         assertTrue(coolArray.contains(7));
     }
 
     @Test
     public void testContainsElementClearArrayFalse() {
-        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) createTestArray(10));
+        ArrayList<Integer> coolArray = new ArrayList<>((Integer[]) ArrayTestHelper.createTestArray(10));
         coolArray.clear();
         assertFalse(coolArray.contains(7));
     }
