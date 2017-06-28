@@ -4,7 +4,7 @@ import collections.list.List;
 
 import java.util.Optional;
 
-public class ArrayList<T> implements List<T> {
+public class ArrayList<T> implements List<T>, Cloneable {
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] elements;
     private int size;
@@ -62,9 +62,7 @@ public class ArrayList<T> implements List<T> {
         if (index >= end) {
             Object[] newArray = new Object[index + DEFAULT_CAPACITY];
 
-            for (int i = 0; i <= this.end; ++i) {
-                newArray[i] = this.elements[i];
-            }
+            System.arraycopy(this.elements, 0, newArray, 0, this.end + 1);
 
             this.elements = newArray;
             this.end = index;
@@ -133,6 +131,7 @@ public class ArrayList<T> implements List<T> {
         return -1;
     }
 
+    @Override
     public ArrayList<T> clone() {
         ArrayList<T> cloneArray = new ArrayList<>(this);
         return cloneArray;
@@ -146,7 +145,7 @@ public class ArrayList<T> implements List<T> {
     @Override
     public Optional<T> get(int i) {
         if (i > end || i < 0) {
-            return Optional.ofNullable(null);
+            return Optional.empty();
         }
 
         return Optional.ofNullable((T) elements[i]);
@@ -166,14 +165,12 @@ public class ArrayList<T> implements List<T> {
     @Override
     public Optional<T> remove(int index) {
         if (index > end) {
-            return Optional.ofNullable(null);
+            return Optional.empty();
         }
 
         T tmpElement = (T) elements[index];
 
-        for (int i = index; i < this.elements.length - 1; ++i) {
-            elements[i] = elements[i + 1];
-        }
+        System.arraycopy(elements, index + 1, elements, index, this.elements.length - 1 - index);
         end = end - 1;
 
         return Optional.ofNullable(tmpElement);
@@ -199,9 +196,7 @@ public class ArrayList<T> implements List<T> {
         }
 
         if (indexOfOcuurance != -1) {
-            for (int i = indexOfOcuurance; i <= end; ++i) {
-                this.elements[i] = this.elements[i + 1];
-            }
+            System.arraycopy(this.elements, indexOfOcuurance + 1, this.elements, indexOfOcuurance, end + 1 - indexOfOcuurance);
             end = end - 1;
         }
     }
@@ -274,7 +269,7 @@ public class ArrayList<T> implements List<T> {
     @Override
     public Optional<T> set(int index, T element) {
         if (index > end) {
-            return Optional.ofNullable(null);
+            return Optional.empty();
         }
 
         Optional<T> tmpElement = Optional.ofNullable((T) this.elements[index]);
@@ -297,9 +292,7 @@ public class ArrayList<T> implements List<T> {
 
         Object[] newArray = new Object[index];
 
-        for (int i = 0; i < index; ++i) {
-            newArray[i] = this.elements[i];
-        }
+        System.arraycopy(this.elements, 0, newArray, 0, index);
         this.elements = newArray;
         this.end = index - 1;
         this.size = index;
@@ -330,9 +323,7 @@ public class ArrayList<T> implements List<T> {
 
         if (this.elements.length < array.length) {
             Object[] newArray = new Object[array.length * 2];
-            for (int i = 0; i < this.elements.length; ++i) {
-                newArray[i] = this.elements[i];
-            }
+            System.arraycopy(this.elements, 0, newArray, 0, this.elements.length);
             this.elements = newArray;
             this.end = newArray.length;
         }
@@ -346,9 +337,7 @@ public class ArrayList<T> implements List<T> {
         this.size *= 2;
         Object[] newArray = new Object[this.size];
 
-        for (int i = 0; i <= this.end; ++i) {
-            newArray[i] = this.elements[i];
-        }
+        System.arraycopy(this.elements, 0, newArray, 0, this.end + 1);
 
         this.elements = newArray;
     }
